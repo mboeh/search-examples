@@ -1,16 +1,18 @@
 * Introduce myself
 * What I'm going to talk about
-* Moment for learners and mentors
-* Search: we know what it is
 * Google search examples
 * "Corpus"
 * "Query"
-* 1: Substring match
-* 2: Word match
-* 3: Multiple word match
+* 0: Simple substring matching
+* 1: Search strategies
+* 2: Normalization
+* 3: Word matching
+* 4: Multiple word matching with AND
+* 5: Multiple word matching with OR
+* 6: Stop words
 * "Relevance"
-* 4: Multiple word match with relevance
-* 5: Normalization
-* 6: Weighting
-* 7: Prefix with weighting
-* 8: Stemming
+* 7: Ranking
+* 8: Field weighting
+* 9: Dynamic weighting
+* "Stemming"
+* 10: Stemming
