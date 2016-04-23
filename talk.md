@@ -16,3 +16,5 @@
 * 9: Dynamic weighting
 * "Stemming"
 * 10: Stemming
+* Topics for further exploration
+* Conclusions
