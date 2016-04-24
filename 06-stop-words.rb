@@ -4,7 +4,7 @@ require 'pp'
 require 'search_index'
 require 'corpus'
 
-module AnyWordSearch
+module AnyWordSearchWithStopwords
   extend self
   
   STOP_WORDS = %w[a an the by and or of to on]
@@ -32,5 +32,5 @@ module AnyWordSearch
   end
 end
 
-index = SearchIndex.new(strategy: AnyWordSearch, documents: CORPUS)
+index = SearchIndex.new(strategy: AnyWordSearchWithStopwords, documents: CORPUS)
 pp index.query("war of the worlds")

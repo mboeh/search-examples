@@ -3,7 +3,7 @@ require 'pp'
 
 CORPUS = JSON.parse File.read "corpus.json"
 
-class SearchIndex
+class SearchyThing
 
   def initialize(documents = [])
     @corpus = []
@@ -44,5 +44,5 @@ class SearchIndex
 
 end
 
-index = SearchIndex.new(CORPUS)
+index = SearchyThing.new(CORPUS)
 pp index.query("Shelley")
