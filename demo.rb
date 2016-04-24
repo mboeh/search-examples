@@ -7,6 +7,12 @@ Dir["*-*.rb"].each do |file|
   require file
 end
 
+class Module
+  def source_code  
+    File.read(instance_method(instance_methods.first).source_location[0])[/(module|class) #{name}(.*?)^end/m]
+  end
+end
+
 module DummySearch
   extend self
 
@@ -42,9 +48,9 @@ STRATEGIES = [
 get "/" do
   @strategies = STRATEGIES
   @selected_strategy_idx = (params['strategy'] || 0).to_i
-  selected_strategy = @strategies[@selected_strategy_idx]
+  @selected_strategy = @strategies[@selected_strategy_idx]
   query = params['query']
-  @results = SearchIndexPlus.new(strategy: selected_strategy, documents: CORPUS).query(params['query'])
+  @results = SearchIndexPlus.new(strategy: @selected_strategy, documents: CORPUS).query(params['query'])
 
   erb <<-EOF
     <form>
@@ -70,5 +76,6 @@ get "/" do
         </tr>
       <% end %>
     </table>
+    <pre><%= @selected_strategy.source_code %></pre>
   EOF
 end
